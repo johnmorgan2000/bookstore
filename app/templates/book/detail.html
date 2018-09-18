@@ -1,4 +1,15 @@
-{% extends 'base.html' %}
-{% block main %}
-{{ book }}
+{% extends 'base.html' %} {% block main %}
+
+<main>
+    <p>{{ book.title }}</p>
+    <p>Authors: {{ book.authors.all|join:", "}}</p>
+    <img src="{{ book.cover_image.url}}" alt="" width="300px">
+
+    <p>{{ book.price }}</p>
+
+    <p>Description{{ book.description }}</p>
+
+
+</main>
+
 {% endblock main %}

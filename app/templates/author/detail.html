@@ -1,4 +1,31 @@
-{% extends 'base.html' %}
-{% block main %}
-{{ author }}
-{% endblock main %}
+{% extends 'base.html' %} {% block main %}
+<div class="container mt-3">
+    <div id="author-detail-content" class="col p-0">
+        <header id="author-detail-header">
+            <p>{{ author.name }}</p>
+        </header>
+
+        <div>
+            {% for book in author.books.all %}
+            <div class="">
+                <div class="d-flex p-2 border-bottom">
+                    <img src="{{ book.cover_image.url}}" alt="" width="100px">
+                    <div class="px-2">
+                        <div>
+                            <a href="{% url 'book-detail' book.id %}">{{ book.title }}</a>
+                        </div>
+                        <div>
+                            <p>By: {% for author in book.authors.all%}
+                                <a id="author-detail-links" href="{% url 'author-detail' author.id %}">{{ author.name }}</a>
+                                &nbsp; {% endfor %} </p>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+    {% endblock main %}

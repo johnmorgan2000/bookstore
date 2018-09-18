@@ -1,0 +1,55 @@
+#navbar {
+    background: linear-gradient(to left, #4a9bad, #ad4a9b);
+}
+
+#navbar-nav-links {
+    font-size: 1.2rem;
+}
+
+#home-content,
+#author-create-content,
+#author-detail-content {
+    border-left: 3px solid #4a9bad;
+    border-right: 3px solid #ad4a9b;
+    border-bottom: 3px solid #ad4a9b;
+}
+
+#home-header,
+#create-author-header,
+#author-detail-header {
+    color: white;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, #4a9bad, #ad4a9b);
+}
+
+#home-content main h1 {
+    font-size: 1.5rem;
+}
+
+#author-name-input label {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#author-name-input input {
+    border: none;
+    border-bottom: 3px solid #4a9bad;
+}
+
+#author-detail-links {
+    text-decoration: underline;
+}
+
+#author-list-name {
+    width: 150px;
+    background: linear-gradient(to right, #4a9bad, #ad4a9b);
+}
+
+#author-submit-button {
+    color: white;
+    font-weight: bold;
+    background-color: #4a9bad;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 2px 2px grey;
+}

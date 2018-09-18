@@ -1,6 +1,27 @@
-{% extends 'base.html' %}
-{% block main %}
+{% extends 'base.html' %} {% block main %}
 <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+    <div class="form-group">
+        <label>Title: </label>
+        <input type="text">
+    </div>
+    <div class="form-group">
+        <label for="">Price: </label>
+        <input type="text">
+    </div>
+    <div class="form-group">
+        <label for="">Authors: </label>
+        <select multiple class="form-control">
+            <option value="">Somebody</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="">Description</label>
+        <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="">Cover Image</label>
+        <input type="file">
+    </div>
+    <input type="submit" value="Submit"> {% csrf_token %}
 </form>
 {% endblock main %}

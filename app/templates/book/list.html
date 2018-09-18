@@ -1,11 +1,24 @@
-{% extends 'base.html' %}{% load static %}
-{% block main %}
+{% extends 'base.html' %}{% load static %} {% block main %}
 
 <main>
     <h1>Books</h1>
     <ul>
         {% for book in books %}
-        <li>{{ book.title }}</li>
+        <li class="my-3 d-flex">
+            <a href=""> <img class="mr-3" src="{{ book.cover_image.url}}" alt="" width="100px"></a>
+
+            <div>
+                <div class="float-right">
+                    <a href="http://"></a>{{ book.price }}
+                </div>
+                <div>
+                    <a href="http://">{{ book.title }}</a>
+                </div>
+                <div>
+                    <a href="http://">{{ book.authors.all|join:", "}}</a>
+                </div>
+            </div>
+        </li>
         {% endfor %}
     </ul>
     {% include 'components/paginate.html' %}

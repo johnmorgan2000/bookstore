@@ -1,9 +1,16 @@
-{% extends 'base.html' %}
-{% block main %}
-<main>
-    <ul>
+{% extends 'base.html' %} {% block main %}
+<main class="container">
+    <ul class="list-group my-3">
         {% for author in authors %}
-        <li>{{ author.name }} : {{ author.books.last.title }}</li>
+        <li class="list-group-item d-flex p-0 mb-2">
+            <div id="author-list-name" class="p-3">
+                <a class="text-white" href="{% url 'author-detail' author.id %}"><b>{{ author.name }}</b></a>
+            </div>
+            <div class="p-3">
+                <a href="{% url 'book-detail' author.books.last.id %}">{{ author.books.last.title }}</a>
+
+            </div>
+        </li>
         {% endfor %}
     </ul>
     {% include 'components/paginate.html' %}

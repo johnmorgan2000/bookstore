@@ -1,3 +1,42 @@
-<nav class="navbar navbar-expand navbar-dark bg-primary">
-    <a href="{% url 'home' %}" class="navbar-brand">Book Store</a>
+<nav id="navbar" class="navbar navbar-expand navbar-dark  py-0">
+    <div class="col">
+        <div class="row justify-content-around">
+            <a href="{% url 'home' %}" class="navbar-brand"><b>Base Camp Book Store</b></a>
+        </div>
+        <div id="navbar-nav-links" class="row font-weight-bold justify-content-between">
+
+            <div class="dropdown">
+                <a class="btn dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b>Books</b>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'book-list' %}">Book Library</a>
+                    <a class="dropdown-item" href="{% url 'book-create' %}">Add Book</a>
+                </div>
+            </div>
+            <a class="rounded mb-2 text-white" href="{% url 'home' %}">Home</a>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b>Authors</b>
+                </a>
+
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'author-list' %}">Listed Authors</a>
+                    <a class="dropdown-item" href="{% url 'author-create' %}">Add Author</a>
+                </div>
+
+            </div>
+
+
+            <!-- <a class="rounded mb-2 text-white" href="{% url 'book-list' %}">Books</a>
+            <a class="rounded mb-2 text-white" href="{% url 'home' %}">Home</a>
+            <a class="rounded mb-2 text-white" href="{% url 'author-list' %}"> Authors</a> -->
+        </div>
+    </div>
+
+
+
+
 </nav>
