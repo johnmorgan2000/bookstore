@@ -1,42 +1,66 @@
 <nav id="navbar" class="navbar navbar-expand navbar-dark  py-0">
-    <div class="col">
-        <div class="row justify-content-around">
-            <a href="{% url 'home' %}" class="navbar-brand"><b>Base Camp Book Store</b></a>
-        </div>
-        <div id="navbar-nav-links" class="row font-weight-bold justify-content-between">
+    <div class="container">
+        <div class="col">
+            <div class="row justify-content-around" id="navbar-head">
+                <a href="{% url 'home' %}" class="navbar-brand py-0">
+                    <svg width="50px" height="50px" viewBox="50 50 20 120">
 
-            <div class="dropdown">
-                <a class="btn dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b>Books</b>
-                </a>
+                        <!-- hexagon -->
+                        <path d=" M10 80 L 10 140 L 60 165 L 110 140 L 110 80 L 60 55 Z " stroke="white" stroke-width="5
+                        " fill="transparent " />
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'book-list' %}">Book Library</a>
-                    <a class="dropdown-item" href="{% url 'book-create' %}">Add Book</a>
+                        <!-- book 1 -->
+                        <path d="M 20 90 A 30 25 0 0 1 50 90 A 30 25 0 0 1 80 90 " stroke="white" stroke-width="3
+                        " fill="transparent " />
+                        <path d="M 21 89 V 130 " stroke="white" stroke-width="4 " fill="transparent " />
+                        <path d="M 50 89 V 130 " stroke="white" stroke-width="2 " fill="transparent " />
+                        <path d="M 20 130 H 81 " stroke="white" stroke-width="3" fill="transparent " />
+                        <path d="M 20 130 A 30 25 0 0 1 50 130 A 30 25 0 0 1 80 130 " stroke="white" stroke-width="3
+                        " fill="transparent " />
+                        <path d="M 80 130 V 121 " stroke="white" stroke-width="4" fill="transparent " />
+                        <path d="M 79 94 V 90 " stroke="white" stroke-width="4" fill="transparent " />
+
+                        <!-- book 2 -->
+                        <path d="M 60 95 A 20 20 0 0 1 80 95 A 20 20 0 0 1 100 95 " stroke="white" stroke-width="3
+                        " fill="transparent " />
+                        <path d="M 60 94 V 120 " stroke="white" stroke-width="3" fill="transparent " />
+                        <path d="M 100 94 V 120 " stroke="white" stroke-width="3" fill="transparent " />
+                        <path d="M 100 120 H 60 " stroke="white" stroke-width="3" fill="transparent " />
+                        <path d="M 80 95 V 120 " stroke="white" stroke-width="2" fill="transparent " />
+                        <path d="M 60 120 A 20 20 0 0 1 80 120 A 20 20 0 0 1 100 120 " stroke="white" stroke-width="2
+                        " fill="transparent " />
+
+                    </svg>
+                    <b>
+                        Base Camp Books
+                    </b></a>
+            </div>
+            <div id="navbar-nav-links" class="row font-weight-bold justify-content-between ">
+
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle text-white" href="# " role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>Books</b>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink ">
+                        <a class="dropdown-item" href="{% url 'book-list' %}">Book Library</a>
+                        <a class="dropdown-item" href="{% url 'book-create' %}">Add Book</a>
+                    </div>
+                </div>
+                <a class="rounded mb-2 text-white" href="{% url 'home' %}">Home</a>
+
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>Authors</b>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink ">
+                        <a class="dropdown-item" href="{% url 'author-list' %}">Listed Authors</a>
+                        <a class="dropdown-item" href="{% url 'author-create' %}">Add Author</a>
+                    </div>
+
                 </div>
             </div>
-            <a class="rounded mb-2 text-white" href="{% url 'home' %}">Home</a>
-            <div class="dropdown">
-                <a class="btn dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b>Authors</b>
-                </a>
 
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'author-list' %}">Listed Authors</a>
-                    <a class="dropdown-item" href="{% url 'author-create' %}">Add Author</a>
-                </div>
-
-            </div>
-
-
-            <!-- <a class="rounded mb-2 text-white" href="{% url 'book-list' %}">Books</a>
-            <a class="rounded mb-2 text-white" href="{% url 'home' %}">Home</a>
-            <a class="rounded mb-2 text-white" href="{% url 'author-list' %}"> Authors</a> -->
         </div>
     </div>
-
-
-
-
 </nav>

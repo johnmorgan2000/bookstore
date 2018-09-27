@@ -1,5 +1,12 @@
+* {
+    font-family: fantasy;
+}
+
 #navbar {
     background: linear-gradient(to left, #4a9bad, #ad4a9b);
+}
+#navbar-head a {
+    font-size: 1.75rem;
 }
 
 #navbar-nav-links {
@@ -8,7 +15,12 @@
 
 #home-content,
 #author-create-content,
-#author-detail-content {
+#author-detail-content,
+#author-update-content,
+#author-list-main,
+#book-create-content,
+#book-detail-content,
+#book-list-content {
     border-left: 3px solid #4a9bad;
     border-right: 3px solid #ad4a9b;
     border-bottom: 3px solid #ad4a9b;
@@ -16,9 +28,15 @@
 
 #home-header,
 #create-author-header,
-#author-detail-header {
+#author-detail-header,
+#author-list-main h1,
+#book-create-header h1,
+#book-detail-content h1,
+#book-list-header {
     color: white;
-    font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 5px;
     background: linear-gradient(to right, #4a9bad, #ad4a9b);
 }
 
@@ -26,12 +44,14 @@
     font-size: 1.5rem;
 }
 
-#author-name-input label {
+#author-name-input label,
+#author-update-input label {
     font-weight: bold;
     margin-bottom: 0px;
 }
 
-#author-name-input input {
+#author-name-input input,
+#author-update-input input {
     border: none;
     border-bottom: 3px solid #4a9bad;
 }
@@ -45,11 +65,27 @@
     background: linear-gradient(to right, #4a9bad, #ad4a9b);
 }
 
-#author-submit-button {
+#author-submit-button,
+#author-update-submit-button,
+#book-create-submit {
     color: white;
     font-weight: bold;
     background-color: #4a9bad;
     border: none;
     border-radius: 6px;
     box-shadow: 2px 2px grey;
+}
+
+/* div#book-create-content label {
+    width: 100px;
+} */
+
+#book-create-submit {
+    width: 300px;
+}
+
+#book-title-input,
+#book-price-input {
+    border: none;
+    border-bottom: 3px solid #4a9bad;
 }

@@ -1,18 +1,27 @@
 {% extends 'base.html' %} {% block main %}
-<main class="container">
-    <ul class="list-group my-3">
-        {% for author in authors %}
-        <li class="list-group-item d-flex p-0 mb-2">
-            <div id="author-list-name" class="p-3">
-                <a class="text-white" href="{% url 'author-detail' author.id %}"><b>{{ author.name }}</b></a>
-            </div>
-            <div class="p-3">
-                <a href="{% url 'book-detail' author.books.last.id %}">{{ author.books.last.title }}</a>
+<div class="row justify-content-around">
+    <main id="author-list-main" class="col-sm-10 col-lg-6 p-0 mt-3">
+        <div>
+            <h1 class="pl-3">Authors</h1>
+        </div>
+        <div>
+            <ul class="list-group my-3 p-1">
+                {% for author in authors %}
+                <li class="list-group-item d-flex p-0 mb-2">
+                    <div id="author-list-name" class="p-3">
+                        <a class="text-white" href="{% url 'author-detail' author.id %}"><b>{{ author.name }}</b></a>
+                    </div>
+                    <div class="p-3">
+                        <a href="{% url 'book-detail' author.books.last.id %}">{{ author.books.last.title }}</a>
 
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="ml-3">
+                {% include 'components/paginate.html' %}
             </div>
-        </li>
-        {% endfor %}
-    </ul>
-    {% include 'components/paginate.html' %}
-</main>
+        </div>
+    </main>
+</div>
 {% endblock main %}

@@ -1,27 +1,52 @@
 {% extends 'base.html' %}{% load static %} {% block main %}
 
 <main>
-    <h1>Books</h1>
-    <ul>
-        {% for book in books %}
-        <li class="my-3 d-flex">
-            <a href=""> <img class="mr-3" src="{{ book.cover_image.url}}" alt="" width="100px"></a>
+    <div class="row justify-content-around">
+        <div class="col-sm-10 col-lg-6">
 
-            <div>
-                <div class="float-right">
-                    <a href="http://"></a>{{ book.price }}
-                </div>
-                <div>
-                    <a href="http://">{{ book.title }}</a>
-                </div>
-                <div>
-                    <a href="http://">{{ book.authors.all|join:", "}}</a>
+            <div class="mt-3" id="book-list-content">
+                <h1 id="book-list-header" class='pl-3 mb-0'>Books</h1>
+                <ul class='list-group p-0'>
+                    {% for book in books %}
+                    <li class="list-group-item">
+                        <div class='row'>
+                            <div class="col-3">
+
+                                <a href="{% url 'book-detail' book.id %}"> <img class="shadow p-1 mb-5 bg-white mr-3" src="{{ book.cover_image.url}}"
+                                        alt="" width="100px"></a>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <a href="{% url 'book-detail' book.id %}">{{ book.title }}</a>
+                                </div>
+
+                                <div>
+                                    <p>By: {% for author in book.authors.all%}
+                                        <a id="author-detail-links" href="{% url 'author-detail' author.id %}">
+                                            {{ author.name }}
+                                        </a>
+                                        &nbsp; {% endfor %} </p>
+                                </div>
+                            </div>
+                            <div class='col-3'>
+
+                                <div class="float-right">
+                                    <p>${{ book.price }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="row justify-content-around mt-2">
+                    {% include 'components/paginate.html' %}
                 </div>
             </div>
-        </li>
-        {% endfor %}
-    </ul>
-    {% include 'components/paginate.html' %}
+
+        </div>
+
+    </div>
+
 </main>
 
 {% endblock main %}

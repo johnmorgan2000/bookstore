@@ -1,15 +1,26 @@
 {% extends 'base.html' %} {% block main %}
+<div class="row justify-content-around">
+    <div class="col-sm-10 col-lg-6">
+        <main id="book-detail-content" class="mt-3">
+            <h1 class="pl-3">{{ book.title }}</h1>
+            <div class="px-3">
+                <p>Authors: {% for author in book.authors.all%}
+                    <a id="" href="{% url 'author-detail' author.id %}">{{ author.name }}</a>
+                    &nbsp; {% endfor %} </p>
+            </div>
+            <div class="px-3">
+                <img class="shadow p-1 mb-5 bg-white" src="{{ book.cover_image.url}}" alt="" width="300px">
 
-<main>
-    <p>{{ book.title }}</p>
-    <p>Authors: {{ book.authors.all|join:", "}}</p>
-    <img src="{{ book.cover_image.url}}" alt="" width="300px">
+                <p class="pt-3">Price: ${{ book.price }}</p>
 
-    <p>{{ book.price }}</p>
+                <p>Description: {{ book.description }}</p>
+            </div>
+            <div class='row justify-content-around mb-3'>
+                <a href="{% url 'book-update' book.id %}"><button type="button" class="btn btn-outline-info">Update </button></a>
+            </div>
 
-    <p>Description{{ book.description }}</p>
-
-
-</main>
+        </main>
+    </div>
+</div>
 
 {% endblock main %}

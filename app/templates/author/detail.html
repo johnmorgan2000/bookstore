@@ -1,31 +1,41 @@
 {% extends 'base.html' %} {% block main %}
-<div class="container mt-3">
-    <div id="author-detail-content" class="col p-0">
-        <header id="author-detail-header">
-            <p>{{ author.name }}</p>
-        </header>
+<div class="row justify-content-around">
+    <div class="col-sm-10 col-lg-6 mt-3">
+        <div id="author-detail-content" class="col p-0">
+            <header id="author-detail-header">
+                <p>{{ author.name }}</p>
+            </header>
 
-        <div>
-            {% for book in author.books.all %}
-            <div class="">
-                <div class="d-flex p-2 border-bottom">
-                    <img src="{{ book.cover_image.url}}" alt="" width="100px">
-                    <div class="px-2">
-                        <div>
-                            <a href="{% url 'book-detail' book.id %}">{{ book.title }}</a>
-                        </div>
-                        <div>
-                            <p>By: {% for author in book.authors.all%}
-                                <a id="author-detail-links" href="{% url 'author-detail' author.id %}">{{ author.name }}</a>
-                                &nbsp; {% endfor %} </p>
+            <div>
+                {% for book in author.books.all %}
+                <div class="">
+                    <div class="d-flex p-2 border-bottom">
+
+                        <img class="shadow mb-5 bg-white" src=" {{ book.cover_image.url}} " alt=" " width="100px ">
+
+                        <div class="px-2 ">
+                            <div>
+                                <a href="{% url 'book-detail' book.id %} ">{{ book.title }}</a>
+                            </div>
+                            <div>
+                                <p>By: {% for author in book.authors.all%}
+                                    <a id="author-detail-links " href="{% url 'author-detail' author.id %} ">
+                                        {{ author.name }}
+                                    </a>
+                                    &nbsp; {% endfor %} </p>
+                            </div>
                         </div>
                     </div>
+
+                    {% endfor %}
                 </div>
-
-                {% endfor %}
+                <div class='row justify-content-around mb-3'>
+                    <a href="{% url 'author-update' author.id %}"><button type="button" class="btn btn-outline-info">Update
+                        </button></a>
+                </div>
             </div>
-        </div>
 
+        </div>
     </div>
 
     {% endblock main %}

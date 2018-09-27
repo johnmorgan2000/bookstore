@@ -1,27 +1,33 @@
 {% extends 'base.html' %} {% block main %}
 
-<div id="home-content" class="container mt-2 p-0">
-    <div class="col">
-        <header class="text-white row justify-content-around" id="home-header">
-            Welcome to Base Camp Book Store!
-        </header>
-        <main class="px-2 pb-3 col">
-            <h1 class="row justify-content-around pt-2">Book of the Day!</h1>
+<div class="container mt-2 p-0">
+    <div class="row justify-content-around">
+        <div id="home-content" class="co-sm-12 col-lg-7">
+            <header class="text-white row justify-content-around" id="home-header">
+                Welcome to Base Camp Books!
+            </header>
+            <main class="px-2 pb-3 col">
+                <h1 class="row justify-content-around pt-2">Book of the Day!</h1>
 
-            <div class="d-flex ml-2">
-                <div>
-                    <img src="{{ book.cover_image.url}}" alt="" width="200px">
+                <div class="d-flex ml-2">
+                    <div>
+                        <a href="{% url 'book-detail' book.id %}">
+                            <img class="shadow" src="{{ book.cover_image.url}}" alt="" width="200px">
+                        </a>
+                    </div>
+                    <div class="ml-3">
+                        <a href="{% url 'book-detail' book.id %}"><p>{{ book.title }}</p></a>
+                        <p>By: {% for author in book.authors.all%}
+                            <a id="author-detail-links" href="{% url 'author-detail' author.id %}">{{ author.name }}</a>
+                            &nbsp; {% endfor %} </p>
+                        <p>{{ book.price }}</p>
+                        <p>{{ book.description|truncatewords:"60" }}</p>
+                    </div>
                 </div>
-                <div class="ml-3">
-                    <p>{{ book.title }}</p>
-                    <p>{{ book.authors.all|join:", "}}</p>
-                    <p>{{ book.price }}</p>
-                    <p>{{ book.description }}</p>
-                </div>
-            </div>
 
 
-            {% endblock main %}
-        </main>
+                {% endblock main %}
+            </main>
+        </div>
     </div>
 </div>
